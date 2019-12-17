@@ -55,7 +55,7 @@ p TimeInterval.parse("1:15").to_s
 #addition example, each addition returns new timeinterval object
 
 # when another object (fixnum) doesn't know how to coerce/extract values from our object, ruby gives the option to specify a coerce method on the timeinterval object, which the coercing object will call and place itself as an arugment, you can then convert the object (fixnum) to specify and return the values in an array to coerce instead using the addition objects (time intervals) method instead.
-#note if coecrsion method doesnt convert the objects into two which can be coecrsed, it will create an infinite loop (stack level too deep error) Make sure first object in array is same as class type
+#note if coecrcion method doesnt convert the objects into two which can be coerced, it will create an infinite loop (stack level too deep error) Make sure first object in array is same as class type
 
 puts 'ADDITION EXAMPLE'
 puts '---------------'
