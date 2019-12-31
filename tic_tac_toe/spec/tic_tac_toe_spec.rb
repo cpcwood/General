@@ -13,5 +13,10 @@ describe TicTacToe do
       new = TicTacToe.new
       expect{new.start_game}.to output("Player 1 enter location of move\n     |     |     \n  -  |  -  |  -  \n_____|_____|_____\n     |     |     \n  -  |  -  |  -  \n_____|_____|_____\n     |     |     \n  -  |  -  |  O  \n     |     |     \n").to_stdout
     end
+    it 'allows player 2 to enter X in position 5' do
+      allow($stdin).to receive(:gets).and_return('5')
+      new = TicTacToe.new
+      expect{new.start_game}.to output("Player 1 enter location of move\n     |     |     \n  -  |  -  |  -  \n_____|_____|_____\n     |     |     \n  -  |  -  |  -  \n_____|_____|_____\n     |     |     \n  -  |  -  |  O  \n     |     |     \n").to_stdout
+    end
   end
 end
