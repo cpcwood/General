@@ -7,24 +7,26 @@ gem 'rubocop', '0.71.0'
 gem 'rspec'
 gem 'simplecov'
 gem 'simplecov-console'
+gem 'sinatra'
+gem 'capybara'
+gem 'selenium-webdriver'
 
-##add simple cov setup to rspec setup file=>>
-#require 'simplecov'
-#require 'simplecov-console'
+#add simple cov setup to rspec setup file=>>
+require 'simplecov'
+require 'simplecov-console'
 
-#SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([SimpleCov::Formatter::Console])
-#SimpleCov.start
-#
-#RSpec.configure do |config|
-#
-#  # Use color not only in STDOUT but also in pagers and files
-#  config.tty = true
-#
-#  # Use the specified formatter
-#  config.formatter = :documentation
-#
-#  config.after(:suite) do
-#    puts
-#  end
-#end
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([SimpleCov::Formatter::Console])
+SimpleCov.start
 
+RSpec.configure do |config|
+
+  # Use color not only in STDOUT but also in pagers and files
+  config.tty = true
+
+  # Use the specified formatter
+  config.formatter = :documentation
+
+  config.after(:suite) do
+    puts
+  end
+end
