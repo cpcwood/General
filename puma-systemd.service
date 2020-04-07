@@ -7,6 +7,7 @@ Type=simple
 User=<non-root-user>
 WorkingDirectory=<application-path>
 ExecStart=<rvm-wrapper-path>/pumactl -F <application-path>/config/puma.rb start
+ExecReload=<rvm-wrapper-path>/pumactl -F <application-path>/shared/pids/puma.pid restart
 ExecStop=<rvm-wrapper-path>/pumactl -S <application-path>/shared/pids/puma.pid stop
 PIDFile=<application-path>/shared/pids/puma.pid
 RestartSec=15s
@@ -14,3 +15,23 @@ Restart=always
 
 [Install]
 WantedBy=multi-user.target
+
+
+
+# ==============
+# Usage
+# ==============
+
+# Reload after changes to file
+# sudo systemctl daemon-reload
+
+# Add service to startup 
+# sudo systemctl enable puma.service
+
+# Start, stop, and restart puma server
+# sudo systemctl start puma.service
+# sudo systemctl stop puma.service
+# sudo systemctl reload puma.service
+
+# Show status of server
+# sudo systemctl status puma.service
