@@ -1,0 +1,16 @@
+[Unit]
+Description=Puma Application Server
+After=network.target
+
+[Service]
+Type=simple
+User=<non-root-user>
+WorkingDirectory=<application-path>
+ExecStart=<rvm-wrapper-path>/pumactl -F <application-path>/config/puma.rb start
+ExecStop=<rvm-wrapper-path>/pumactl -S <application-path>/shared/pids/puma.pid stop
+PIDFile=<application-path>/shared/pids/puma.pid
+RestartSec=15s
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
